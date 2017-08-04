@@ -1,7 +1,5 @@
 #include<iostream>
-
 using namespace std;
-
 char mo(long n)
 {
 	long s[100];
