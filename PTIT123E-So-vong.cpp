@@ -47,7 +47,7 @@ int check(string a){
 }
 int main(){
 	string a;
-	while((cin>>a)!=NULL){
+	while(cin>>a){
 		cout<<a;
 		if(check(a)) cout<<" is cyclic"<<endl; else cout<<" is not cyclic"<<endl;;
 	}
