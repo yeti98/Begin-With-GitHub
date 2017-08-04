@@ -1,22 +1,20 @@
+/* thực hiện các phép nhân số lớn rồi dùng 2 bảng tần số để so sánh xem số đã cho có phải số vòng hay không*/
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 char chr(int a){
-	return a+'0';
+	return a+'0'; //chuyển số sang ký số
 }
 int val(char a){
-	return a-'0';
+	return a-'0'; //chuyển ký số sang số
 }
-char chradd(char a, char b, int& mem){
+char chradd(char a, char b, int& mem){ //cộng hay số
 	int temp=val(a)+val(b)+mem;
 	mem=temp/10;
 	return chr(temp%10);
 }
-char chrod(char a, char b, int& mem){
-	int temp=val(a)-mem-val(b);
-}
-string bnadd(string a, string b){
+string bnadd(string a, string b){  // cộng 2 số lớn
 	string ans;
 	while (a.length()<b.length()) a='0'+a;
 	while (b.length()<a.length()) b='0'+b;
@@ -25,12 +23,12 @@ string bnadd(string a, string b){
 	if(mem>0) ans='1'+ans;
 	return ans;
 }
-string bnmul(string a, int n){
+string bnmul(string a, int n){     //nhân 2 số lớn
 	string kq="0";
 	while(n--) kq=bnadd(kq,a);
 	return kq;
 }
-int check(string a){
+int check(string a){              //kiểm tra số vòng
 	vector<int> freq(10,0);
 	int i=0;
 	while(i<a.length()) ++freq[val(a[i])],++i;
