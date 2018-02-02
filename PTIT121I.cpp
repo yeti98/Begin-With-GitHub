@@ -1,16 +1,16 @@
 #include <iostream>
+using namespace std;
 int main(){
-	int test;
-	std::cin>>test;
+	int test; cin>>test;
 	while(test--){
-		int i, r; std::cin>>i>>r;
-		std::string s; std::cin>>s;
-		std::cout<<i<<' ';
-		for(int j=0;j<s.length();j++){
-			int k=0;
-			while(k++<r) std::cout<<s[j];
+		int stt, loop;
+		string s;
+		cin>>stt>>loop>>s;
+		cout<<stt<<" ";
+		for(int i=0;i<s.length();i++){
+			for(int j=0;j<loop;j++) cout<<s[i];
 		}
-		std::cout<<'\n';
+		cout<<"\n";
 	}
 	return 0;
 }
