@@ -1,37 +1,23 @@
-    #include <iostream>
-    #include <math.h>
-    using namespace std;
-     
-    int ktnt (long long a)
-    {
-    	if (a<2) return 0;
-    	for (long i=2; i<=sqrt(a); i++)
-    	{
-    		if (a%i==0) return 0;
-    	}
-    	return 1;
-    }
-     
-    int soGanNT (long long a)
-    {
-    	if (a==1) return 0;
-    	long long x=sqrt(a);
-    	if ((x*x)==a && ktnt (x)==1) return 1;
-    	else return 0;
-    }
-     
-    int main ()
-    {
-    	long n;
-    	cin>>n;
-    	long long x[100005];
-    	for (long i=1; i<=n; i++)
-    	{
-    		cin>>x[i];
-    	}
-    	for (long i=1; i<=n; i++)
-    	{
-    		if (soGanNT(x[i])==1) cout<<"YES"<<endl;
-    		else cout<<"NO"<<endl;
-    	}
-    }
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool prime(long long x){
+	if(x<2) return false;
+	for(long long i=2;i<=sqrt(x);i++)
+		if(x%i==0) return false;
+	return true;
+}
+bool near_prime(long long x){
+	long long j=sqrt(x);
+	if((j*j!=x) || !prime(j) || x<4) return false;
+	return true;
+}
+int main(){
+	long long n, x;
+	cin>>n;
+	for(long long i=0;i<n;i++){
+		cin>>x;
+		if(near_prime(x)) cout<<"YES\n"; else cout<<"NO\n";
+	}
+	return 0;
+}
