@@ -16,3 +16,6 @@ int main(){
 	}
 	cout<<n-teo<<" "<<teo;
 }
+//error test case:
+//2
+//2 2
