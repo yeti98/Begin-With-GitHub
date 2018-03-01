@@ -7,10 +7,10 @@ int dem=0;
 void Solution(int r){
 	if(r==n+1) ++dem;
 	else {
-		for(int j=1;j<=n;j++){
+		for(int i=1;i<=n;i++){
 			bool legal=true;
-			for(int i=1;i<=r-1;i++){
-				if(Q[i]==j || Q[i]==j+r-i || Q[i]==j-r+i) legal=false;
+			for(int j=1;j<=r-1;j++){
+				if(Q[j]==i || Q[j]==i+r-j || Q[j]==i-r+j) legal=false;
 			}
 			if (legal){
 				Q[r]=j;
@@ -19,8 +19,7 @@ void Solution(int r){
 		}
 	}
 }
-int main()
-{
+int main(){
 	cin>>n;
 	Solution(1);
 	cout<<dem<<endl;
