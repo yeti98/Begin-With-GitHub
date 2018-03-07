@@ -20,15 +20,17 @@ int main(){
 		std::string num;
 		std::cin>>num;
 		if(num=="0") return 0;
-		std::string pnum (num);
+		std::string pnum(num);
 		int i=0, j=num.length()-1;
 		while(i<=j)	{
 			if(pnum[i]!=pnum[j]) pnum[j]=pnum[i];
 			++i, --j;
 		}
 		long res=stl(pnum)-stl(num);
+//		std::cout<<"\npnum:\t"<<pnum<<"\tres:\t"<<res<<'\n';
 		if(res<0){
 			addone(pnum);
+			std::cout<<"\npnum:\t"<<pnum<<'\n';
 			int i=0, j=pnum.length()-1;
 			while(i<=j)	{
 				if(pnum[i]!=pnum[j]) pnum[j]=pnum[i];
