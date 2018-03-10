@@ -4,14 +4,13 @@ int cmp(long long a, long long b){
 	return a>b;
 }
 int main(){
-	long long n, k, a[100005];
+	long long n, k, arr[100005];
     cin>>n>>k;
-    for(long long i = 0; i<n; i++)	cin>>a[i];
-    sort(a + 1, a + n, cmp);
-    long i;
-    long long s = 0;
-    for (i = 0; i <= k; i++)	s = s + a[i];
-    for (i = k+1; i <n; i++)	s = s - a[i];
+    for(long long i = 0; i<n; i++)	cin>>arr[i];
+    sort(arr + 1, arr + n, cmp);
+    long long sum=0;
+    for (long i=0;i<=k;i++)	sum+=a[i];
+    for (long i=k+1;i<n;i++)	sum-=a[i];
     cout << s;
     return 0;
 }
