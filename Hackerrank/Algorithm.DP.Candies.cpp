@@ -1,14 +1,45 @@
 #include <bits/stdc++.h>
-using namespace std;
-int main(){	
-	int n; cin>>n;
-	int a[10005], c[10005];
-	for(int i=1;i<=n;i++) cin>>a[i];
-	long long candy=0;
-	for(int i=1;i<=n;i++) cout<<c[i]<<" ";
-	cout<<"\n";
-	for(int i=1;i<=n;i++) candy+=c[i];
-	cout<<candy;
-	return 0;
-}
 
+using namespace std;
+
+int rate [100000 + 10];
+long long values [100000 + 10];   // use long long
+//https://www.geeksforgeeks.org/dynamic-programming-set-18-word-wrap/
+int main()
+{
+    int n;
+    long long ans = 0, tmp = 0;
+
+    cin >> n;
+
+    for(int i = 0; i < n; i++) cin >> rate[i];
+
+    values[0] = 1;
+                                        // case 1
+    for(int i = 1; i < n; i++){         // scan input array from left to right
+
+        if(rate[i] > rate[i - 1]){
+
+            values[i] = values[i - 1] + 1;  // case 1, a
+
+        } else values[i] = 1;               // case 1,b
+    }
+
+    ans = values[n - 1];                // case 2
+
+    for(int i = n - 2; i >= 0; i--){    // scan input array from right to left
+
+        if(rate[i] > rate[i + 1]){
+
+            tmp = values[i + 1] + 1;        // case 2, a
+
+        } else tmp = 1;                     // case 2, b
+
+        ans += max(tmp, values[i]);   // maximum of the two values for child (i)
+        values[i] = tmp;
+    }
+
+    cout << ans;
+
+    return 0;
+}
